@@ -15,10 +15,12 @@ describe("CounterButton", () => {
 
     expect(getByText("Count is 0")).toBeTruthy()
 
-    const button = container.querySelector(".inc")!
+    const button = container.querySelector(".inc")
 
-    await fireEvent.click(button)
-    await fireEvent.click(button)
+    if (button) {
+      await fireEvent.click(button)
+      await fireEvent.click(button)
+    }
 
     expect(getByText("Count is 2")).toBeTruthy()
   })
